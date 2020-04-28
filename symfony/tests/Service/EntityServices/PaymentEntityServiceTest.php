@@ -188,8 +188,33 @@ class PaymentEntityServiceTest extends WebTestCase
         $this->assertNull($container->getPaymentData('nonexistentId', 'notification'));
     }
 
+    public function testGetEntityData()
+    {
+        $payment = new Payment();
+        $payment->setAmount(10000.87);
+        $payment->setPurpose('ТестовыйПлатеж 1');
+        $payment->setOrderId('testOrderId92149');
+        $this->entityManager->persist($payment);
+        $this->entityManager->flush();
+        $id = $payment->getId();
+        $container = self::$container->get(PaymentEntityService::class);
+        $data = $container->getEntityData($payment->getId(), 'notification',[],['amount','orderId']);
+
+        $this->assertCount(2, $data);
+        $this->assertEquals($payment->getAmount(), $data['amount']);
+        $this->assertEquals($payment->getOrderId(), $data['orderId']);
+
+        $this->entityManager->remove($payment);
+        $this->entityManager->flush();
+
+        $data = $container->getEntityData($id);
+        $this->assertNull($data);
+    }
+
     /*
+     *
      * Data Providers
+     *
      */
 
     public function getPeriodData()
