@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1588083353">
+  <project timestamp="1588083353">
+    <package name="App\Controller">
+      <file name="/var/www/symfony/src/Controller/ApiController.php">
+        <class name="App\Controller\ApiController" namespace="App\Controller">
+          <metrics complexity="22" methods="6" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="59" coveredstatements="53" elements="65" coveredelements="56"/>
+        </class>
+        <line num="28" type="method" name="getPayment" visibility="public" complexity="4" crap="4.05" count="2"/>
+        <line num="30" type="stmt" count="2"/>
+        <line num="31" type="stmt" count="0"/>
+        <line num="33" type="stmt" count="2"/>
+        <line num="34" type="stmt" count="2"/>
+        <line num="35" type="stmt" count="2"/>
+        <line num="36" type="stmt" count="1"/>
+        <line num="38" type="stmt" count="1"/>
+        <line num="51" type="method" name="register" visibility="public" complexity="4" crap="4.21" count="2"/>
+        <line num="56" type="stmt" count="2"/>
+        <line num="57" type="stmt" count="2"/>
+        <line num="58" type="stmt" count="2"/>
+        <line num="59" type="stmt" count="2"/>
+        <line num="60" type="stmt" count="2"/>
+        <line num="62" type="stmt" count="2"/>
+        <line num="63" type="stmt" count="2"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="65" type="stmt" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="69" type="stmt" count="0"/>
+        <line num="72" type="stmt" count="2"/>
+        <line num="74" type="stmt" count="2"/>
+        <line num="76" type="stmt" count="2"/>
+        <line num="77" type="stmt" count="2"/>
+        <line num="78" type="stmt" count="2"/>
+        <line num="82" type="stmt" count="1"/>
+        <line num="93" type="method" name="getPaymentsFromPeriod" visibility="public" complexity="3" crap="3" count="5"/>
+        <line num="97" type="stmt" count="5"/>
+        <line num="98" type="stmt" count="5"/>
+        <line num="100" type="stmt" count="5"/>
+        <line num="101" type="stmt" count="1"/>
+        <line num="102" type="stmt" count="1"/>
+        <line num="103" type="stmt" count="1"/>
+        <line num="104" type="stmt" count="1"/>
+        <line num="105" type="stmt" count="1"/>
+        <line num="108" type="stmt" count="1"/>
+        <line num="110" type="stmt" count="4"/>
+        <line num="121" type="method" name="createPaymentSession" visibility="public" complexity="5" crap="5.01" count="3"/>
+        <line num="125" type="stmt" count="3"/>
+        <line num="126" type="stmt" count="0"/>
+        <line num="128" type="stmt" count="3"/>
+        <line num="130" type="stmt" count="3"/>
+        <line num="131" type="stmt" count="2"/>
+        <line num="133" type="stmt" count="2"/>
+        <line num="134" type="stmt" count="2"/>
+        <line num="136" type="stmt" count="2"/>
+        <line num="139" type="stmt" count="1"/>
+        <line num="141" type="stmt" count="1"/>
+        <line num="143" type="stmt" count="1"/>
+        <line num="144" type="stmt" count="1"/>
+        <line num="145" type="stmt" count="1"/>
+        <line num="153" type="method" name="getErrorsFromForm" visibility="private" complexity="5" crap="5" count="5"/>
+        <line num="155" type="stmt" count="5"/>
+        <line num="156" type="stmt" count="5"/>
+        <line num="157" type="stmt" count="5"/>
+        <line num="159" type="stmt" count="5"/>
+        <line num="160" type="stmt" count="5"/>
+        <line num="161" type="stmt" count="5"/>
+        <line num="162" type="stmt" count="5"/>
+        <line num="167" type="stmt" count="5"/>
+        <line num="170" type="method" name="getValidationErrorResp" visibility="private" complexity="1" crap="1" count="5"/>
+        <line num="172" type="stmt" count="5"/>
+        <line num="174" type="stmt" count="5"/>
+        <line num="175" type="stmt" count="5"/>
+        <line num="177" type="stmt" count="5"/>
+        <metrics loc="180" ncloc="149" classes="1" methods="6" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="59" coveredstatements="53" elements="65" coveredelements="56"/>
+      </file>
+      <file name="/var/www/symfony/src/Controller/DefaultController.php">
+        <class name="App\Controller\DefaultController" namespace="App\Controller">
+          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+        </class>
+        <line num="13" type="method" name="index" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="15" type="stmt" count="1"/>
+        <metrics loc="17" ncloc="14" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+      </file>
+      <file name="/var/www/symfony/src/Controller/PaymentController.php">
+        <class name="App\Controller\PaymentController" namespace="App\Controller">
+          <metrics complexity="7" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="26" coveredstatements="26" elements="27" coveredelements="27"/>
+        </class>
+        <line num="20" type="method" name="payCardForm" visibility="public" complexity="7" crap="7" count="7"/>
+        <line num="24" type="stmt" count="7"/>
+        <line num="25" type="stmt" count="7"/>
+        <line num="26" type="stmt" count="4"/>
+        <line num="27" type="stmt" count="4"/>
+        <line num="29" type="stmt" count="4"/>
+        <line num="32" type="stmt" count="4"/>
+        <line num="35" type="stmt" count="3"/>
+        <line num="38" type="stmt" count="3"/>
+        <line num="39" type="stmt" count="2"/>
+        <line num="40" type="stmt" count="2"/>
+        <line num="42" type="stmt" count="2"/>
+        <line num="46" type="stmt" count="1"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="50" type="stmt" count="1"/>
+        <line num="52" type="stmt" count="1"/>
+        <line num="54" type="stmt" count="2"/>
+        <line num="55" type="stmt" count="2"/>
+        <line num="57" type="stmt" count="2"/>
+        <line num="58" type="stmt" count="2"/>
+        <line num="59" type="stmt" count="2"/>
+        <line num="64" type="stmt" count="1"/>
+        <line num="65" type="stmt" count="1"/>
+        <line num="66" type="stmt" count="1"/>
+        <line num="67" type="stmt" count="1"/>
+        <metrics loc="72" ncloc="58" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="26" coveredstatements="26" elements="27" coveredelements="27"/>
+      </file>
+    </package>
+    <package name="App\DataFixtures">
+      <file name="/var/www/symfony/src/DataFixtures/PaymentFixtures.php">
+        <class name="App\DataFixtures\PaymentFixtures" namespace="App\DataFixtures">
+          <metrics complexity="4" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="24" elements="25" coveredelements="25"/>
+        </class>
+        <line num="15" type="method" name="load" visibility="public" complexity="4" crap="4" count="20"/>
+        <line num="17" type="stmt" count="20"/>
+        <line num="18" type="stmt" count="20"/>
+        <line num="20" type="stmt" count="20"/>
+        <line num="22" type="stmt" count="20"/>
+        <line num="23" type="stmt" count="20"/>
+        <line num="24" type="stmt" count="20"/>
+        <line num="25" type="stmt" count="20"/>
+        <line num="26" type="stmt" count="20"/>
+        <line num="27" type="stmt" count="20"/>
+        <line num="28" type="stmt" count="20"/>
+        <line num="29" type="stmt" count="20"/>
+        <line num="30" type="stmt" count="20"/>
+        <line num="31" type="stmt" count="20"/>
+        <line num="33" type="stmt" count="20"/>
+        <line num="34" type="stmt" count="20"/>
+        <line num="35" type="stmt" count="20"/>
+        <line num="36" type="stmt" count="20"/>
+        <line num="37" type="stmt" count="20"/>
+        <line num="38" type="stmt" count="20"/>
+        <line num="39" type="stmt" count="20"/>
+        <line num="40" type="stmt" count="20"/>
+        <line num="41" type="stmt" count="20"/>
+        <line num="43" type="stmt" count="20"/>
+        <line num="44" type="stmt" count="20"/>
+        <metrics loc="46" ncloc="42" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="24" elements="25" coveredelements="25"/>
+      </file>
+    </package>
+    <package name="App\Entity">
+      <file name="/var/www/symfony/src/Entity/Payment.php">
+        <class name="App\Entity\Payment" namespace="App\Entity">
+          <metrics complexity="22" methods="14" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="21" elements="35" coveredelements="35"/>
+        </class>
+        <line num="52" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="31"/>
+        <line num="54" type="stmt" count="31"/>
+        <line num="55" type="stmt" count="31"/>
+        <line num="57" type="method" name="getId" visibility="public" complexity="2" crap="2" count="23"/>
+        <line num="59" type="stmt" count="23"/>
+        <line num="62" type="method" name="getPurpose" visibility="public" complexity="2" crap="2" count="21"/>
+        <line num="64" type="stmt" count="21"/>
+        <line num="67" type="method" name="setPurpose" visibility="public" complexity="1" crap="1" count="31"/>
+        <line num="69" type="stmt" count="31"/>
+        <line num="71" type="stmt" count="31"/>
+        <line num="74" type="method" name="getAmount" visibility="public" complexity="2" crap="2" count="21"/>
+        <line num="76" type="stmt" count="21"/>
+        <line num="79" type="method" name="setAmount" visibility="public" complexity="1" crap="1" count="31"/>
+        <line num="81" type="stmt" count="31"/>
+        <line num="83" type="stmt" count="31"/>
+        <line num="86" type="method" name="getNotification" visibility="public" complexity="2" crap="2" count="20"/>
+        <line num="88" type="stmt" count="20"/>
+        <line num="91" type="method" name="setNotification" visibility="public" complexity="2" crap="2" count="10"/>
+        <line num="93" type="stmt" count="10"/>
+        <line num="95" type="stmt" count="10"/>
+        <line num="98" type="method" name="getCreatedAt" visibility="public" complexity="2" crap="2" count="17"/>
+        <line num="100" type="stmt" count="17"/>
+        <line num="103" type="method" name="setCreatedAt" visibility="public" complexity="1" crap="1" count="20"/>
+        <line num="105" type="stmt" count="20"/>
+        <line num="107" type="stmt" count="20"/>
+        <line num="110" type="method" name="getStatus" visibility="public" complexity="2" crap="2" count="21"/>
+        <line num="112" type="stmt" count="21"/>
+        <line num="115" type="method" name="setStatus" visibility="public" complexity="1" crap="1" count="23"/>
+        <line num="117" type="stmt" count="23"/>
+        <line num="119" type="stmt" count="23"/>
+        <line num="122" type="method" name="getOrderId" visibility="public" complexity="2" crap="2" count="30"/>
+        <line num="124" type="stmt" count="30"/>
+        <line num="127" type="method" name="setOrderId" visibility="public" complexity="1" crap="1" count="31"/>
+        <line num="129" type="stmt" count="31"/>
+        <line num="131" type="stmt" count="31"/>
+        <metrics loc="133" ncloc="105" classes="1" methods="14" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="21" elements="35" coveredelements="35"/>
+      </file>
+    </package>
+    <package name="App\Form">
+      <file name="/var/www/symfony/src/Form/CardPaymentType.php">
+        <class name="App\Form\CardPaymentType" namespace="App\Form">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="28" elements="30" coveredelements="30"/>
+        </class>
+        <line num="15" type="method" name="buildForm" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="18" type="stmt" count="2"/>
+        <line num="19" type="stmt" count="2"/>
+        <line num="20" type="stmt" count="2"/>
+        <line num="23" type="stmt" count="2"/>
+        <line num="24" type="stmt" count="2"/>
+        <line num="25" type="stmt" count="2"/>
+        <line num="29" type="stmt" count="2"/>
+        <line num="30" type="stmt" count="2"/>
+        <line num="31" type="stmt" count="2"/>
+        <line num="33" type="stmt" count="2"/>
+        <line num="35" type="stmt" count="2"/>
+        <line num="36" type="stmt" count="2"/>
+        <line num="40" type="stmt" count="2"/>
+        <line num="41" type="stmt" count="2"/>
+        <line num="42" type="stmt" count="2"/>
+        <line num="44" type="stmt" count="2"/>
+        <line num="46" type="stmt" count="2"/>
+        <line num="47" type="stmt" count="2"/>
+        <line num="51" type="stmt" count="2"/>
+        <line num="52" type="stmt" count="2"/>
+        <line num="53" type="stmt" count="2"/>
+        <line num="55" type="stmt" count="2"/>
+        <line num="57" type="stmt" count="2"/>
+        <line num="58" type="stmt" count="2"/>
+        <line num="63" type="stmt" count="2"/>
+        <line num="65" type="method" name="configureOptions" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="67" type="stmt" count="2"/>
+        <line num="69" type="stmt" count="2"/>
+        <line num="72" type="stmt" count="2"/>
+        <metrics loc="73" ncloc="73" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="28" elements="30" coveredelements="30"/>
+      </file>
+      <file name="/var/www/symfony/src/Form/PaymentRegisterType.php">
+        <class name="App\Form\PaymentRegisterType" namespace="App\Form">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="25" elements="27" coveredelements="27"/>
+        </class>
+        <line num="19" type="method" name="buildForm" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="22" type="stmt" count="2"/>
+        <line num="23" type="stmt" count="2"/>
+        <line num="24" type="stmt" count="2"/>
+        <line num="27" type="stmt" count="2"/>
+        <line num="28" type="stmt" count="2"/>
+        <line num="32" type="stmt" count="2"/>
+        <line num="33" type="stmt" count="2"/>
+        <line num="34" type="stmt" count="2"/>
+        <line num="37" type="stmt" count="2"/>
+        <line num="39" type="stmt" count="2"/>
+        <line num="40" type="stmt" count="2"/>
+        <line num="44" type="stmt" count="2"/>
+        <line num="45" type="stmt" count="2"/>
+        <line num="46" type="stmt" count="2"/>
+        <line num="49" type="stmt" count="2"/>
+        <line num="50" type="stmt" count="2"/>
+        <line num="54" type="stmt" count="2"/>
+        <line num="55" type="stmt" count="2"/>
+        <line num="56" type="stmt" count="2"/>
+        <line num="59" type="stmt" count="2"/>
+        <line num="60" type="stmt" count="2"/>
+        <line num="64" type="stmt" count="2"/>
+        <line num="66" type="method" name="configureOptions" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="68" type="stmt" count="2"/>
+        <line num="70" type="stmt" count="2"/>
+        <line num="74" type="stmt" count="2"/>
+        <metrics loc="75" ncloc="75" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="25" elements="27" coveredelements="27"/>
+      </file>
+      <file name="/var/www/symfony/src/Form/PaymentsFromPeriodType.php">
+        <class name="App\Form\PaymentsFromPeriodType" namespace="App\Form">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="17" coveredelements="17"/>
+        </class>
+        <line num="16" type="method" name="buildForm" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="19" type="stmt" count="5"/>
+        <line num="20" type="stmt" count="5"/>
+        <line num="21" type="stmt" count="5"/>
+        <line num="22" type="stmt" count="5"/>
+        <line num="24" type="stmt" count="5"/>
+        <line num="26" type="stmt" count="5"/>
+        <line num="30" type="stmt" count="5"/>
+        <line num="31" type="stmt" count="5"/>
+        <line num="32" type="stmt" count="5"/>
+        <line num="34" type="stmt" count="5"/>
+        <line num="36" type="stmt" count="5"/>
+        <line num="40" type="stmt" count="5"/>
+        <line num="42" type="method" name="configureOptions" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="44" type="stmt" count="5"/>
+        <line num="46" type="stmt" count="5"/>
+        <line num="49" type="stmt" count="5"/>
+        <metrics loc="50" ncloc="50" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="17" coveredelements="17"/>
+      </file>
+    </package>
+    <package name="App\Repository">
+      <file name="/var/www/symfony/src/Repository/PaymentRepository.php">
+        <class name="App\Repository\PaymentRepository" namespace="App\Repository">
+          <metrics complexity="4" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="12" elements="16" coveredelements="13"/>
+        </class>
+        <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="54"/>
+        <line num="19" type="stmt" count="54"/>
+        <line num="20" type="stmt" count="54"/>
+        <line num="30" type="method" name="findByPeriod" visibility="public" complexity="3" crap="3.04" count="7"/>
+        <line num="37" type="stmt" count="7"/>
+        <line num="38" type="stmt" count="7"/>
+        <line num="39" type="stmt" count="7"/>
+        <line num="40" type="stmt" count="7"/>
+        <line num="41" type="stmt" count="7"/>
+        <line num="43" type="stmt" count="7"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="7"/>
+        <line num="51" type="stmt" count="7"/>
+        <line num="52" type="stmt" count="7"/>
+        <line num="53" type="stmt" count="7"/>
+        <metrics loc="68" ncloc="43" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="12" elements="16" coveredelements="13"/>
+      </file>
+    </package>
+    <file name="/var/www/symfony/src/Repository/PaymentRepositoryService.php">
+      <metrics loc="34" ncloc="20" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <package name="App\Service\EntityServices">
+      <file name="/var/www/symfony/src/Service/EntityServices/AbstractEntityService.php">
+        <class name="App\Service\EntityServices\AbstractEntityService" namespace="App\Service\EntityServices">
+          <metrics complexity="25" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="42" coveredstatements="38" elements="48" coveredelements="43"/>
+        </class>
+        <line num="26" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="54"/>
+        <line num="31" type="stmt" count="54"/>
+        <line num="32" type="stmt" count="54"/>
+        <line num="33" type="stmt" count="54"/>
+        <line num="34" type="stmt" count="54"/>
+        <line num="36" type="method" name="getEntityData" visibility="public" complexity="3" crap="12.00" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="50" type="method" name="getEntitiesPageData" visibility="public" complexity="4" crap="4" count="1"/>
+        <line num="61" type="stmt" count="1"/>
+        <line num="62" type="stmt" count="1"/>
+        <line num="64" type="stmt" count="1"/>
+        <line num="66" type="stmt" count="1"/>
+        <line num="67" type="stmt" count="1"/>
+        <line num="73" type="stmt" count="1"/>
+        <line num="74" type="stmt" count="1"/>
+        <line num="75" type="stmt" count="1"/>
+        <line num="76" type="stmt" count="1"/>
+        <line num="79" type="stmt" count="1"/>
+        <line num="82" type="method" name="getOrderCriteria" visibility="public" complexity="11" crap="11" count="17"/>
+        <line num="87" type="stmt" count="17"/>
+        <line num="88" type="stmt" count="17"/>
+        <line num="89" type="stmt" count="17"/>
+        <line num="90" type="stmt" count="17"/>
+        <line num="91" type="stmt" count="15"/>
+        <line num="92" type="stmt" count="15"/>
+        <line num="93" type="stmt" count="15"/>
+        <line num="94" type="stmt" count="10"/>
+        <line num="95" type="stmt" count="15"/>
+        <line num="96" type="stmt" count="15"/>
+        <line num="97" type="stmt" count="15"/>
+        <line num="98" type="stmt" count="15"/>
+        <line num="99" type="stmt" count="14"/>
+        <line num="100" type="stmt" count="13"/>
+        <line num="105" type="stmt" count="17"/>
+        <line num="108" type="method" name="normalizeEntity" visibility="protected" complexity="5" crap="5" count="17"/>
+        <line num="114" type="stmt" count="17"/>
+        <line num="115" type="stmt" count="17"/>
+        <line num="117" type="stmt" count="17"/>
+        <line num="119" type="stmt" count="17"/>
+        <line num="120" type="stmt" count="17"/>
+        <line num="123" type="stmt" count="17"/>
+        <line num="127" type="stmt" count="17"/>
+        <line num="130" type="method" name="count" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="132" type="stmt" count="1"/>
+        <line num="134" type="stmt" count="1"/>
+        <metrics loc="136" ncloc="127" classes="1" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="42" coveredstatements="38" elements="48" coveredelements="43"/>
+      </file>
+      <file name="/var/www/symfony/src/Service/EntityServices/PaymentEntityService.php">
+        <class name="App\Service\EntityServices\PaymentEntityService" namespace="App\Service\EntityServices">
+          <metrics complexity="18" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="40" elements="49" coveredelements="49"/>
+        </class>
+        <line num="33" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="54"/>
+        <line num="40" type="stmt" count="54"/>
+        <line num="41" type="stmt" count="54"/>
+        <line num="42" type="stmt" count="54"/>
+        <line num="43" type="stmt" count="54"/>
+        <line num="45" type="method" name="getPaymentData" visibility="public" complexity="3" crap="3" count="8"/>
+        <line num="47" type="stmt" count="8"/>
+        <line num="49" type="stmt" count="8"/>
+        <line num="50" type="stmt" count="2"/>
+        <line num="51" type="stmt" count="6"/>
+        <line num="52" type="stmt" count="6"/>
+        <line num="54" type="stmt" count="6"/>
+        <line num="55" type="stmt" count="8"/>
+        <line num="59" type="method" name="getPaymentsPageData" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="65" type="stmt" count="1"/>
+        <line num="66" type="stmt" count="1"/>
+        <line num="69" type="stmt" count="1"/>
+        <line num="70" type="stmt" count="1"/>
+        <line num="72" type="stmt" count="1"/>
+        <line num="76" type="method" name="getPaymentsDataFromDatetime" visibility="public" complexity="2" crap="2" count="7"/>
+        <line num="81" type="stmt" count="7"/>
+        <line num="82" type="stmt" count="7"/>
+        <line num="84" type="stmt" count="7"/>
+        <line num="85" type="stmt" count="7"/>
+        <line num="86" type="stmt" count="7"/>
+        <line num="88" type="stmt" count="7"/>
+        <line num="89" type="stmt" count="7"/>
+        <line num="93" type="stmt" count="7"/>
+        <line num="96" type="method" name="getPaymentsCount" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="98" type="stmt" count="1"/>
+        <line num="101" type="method" name="getPaymentByOrderId" visibility="public" complexity="2" crap="2" count="5"/>
+        <line num="103" type="stmt" count="5"/>
+        <line num="106" type="method" name="sendNotification" visibility="public" complexity="3" crap="3" count="4"/>
+        <line num="108" type="stmt" count="4"/>
+        <line num="109" type="stmt" count="4"/>
+        <line num="110" type="stmt" count="3"/>
+        <line num="111" type="stmt" count="3"/>
+        <line num="112" type="stmt" count="3"/>
+        <line num="114" type="stmt" count="3"/>
+        <line num="115" type="stmt" count="3"/>
+        <line num="120" type="stmt" count="3"/>
+        <line num="121" type="stmt" count="2"/>
+        <line num="122" type="stmt" count="2"/>
+        <line num="125" type="stmt" count="4"/>
+        <line num="127" type="method" name="createPaymentSession" visibility="public" complexity="2" crap="2" count="4"/>
+        <line num="129" type="stmt" count="4"/>
+        <line num="132" type="method" name="getPaymentBySessionId" visibility="public" complexity="3" crap="3" count="7"/>
+        <line num="134" type="stmt" count="7"/>
+        <line num="136" type="stmt" count="7"/>
+        <metrics loc="137" ncloc="124" classes="1" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="40" elements="49" coveredelements="49"/>
+      </file>
+    </package>
+    <file name="/var/www/symfony/src/Service/EntityServices/PaymentServiceInterface.php">
+      <metrics loc="38" ncloc="38" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <package name="App\Service">
+      <file name="/var/www/symfony/src/Service/PaymentSessionCacheService.php">
+        <class name="App\Service\PaymentSessionCacheService" namespace="App\Service">
+          <metrics complexity="7" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="14" elements="19" coveredelements="17"/>
+        </class>
+        <line num="16" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="69"/>
+        <line num="18" type="stmt" count="69"/>
+        <line num="19" type="stmt" count="69"/>
+        <line num="21" type="method" name="getPaymentId" visibility="public" complexity="3" crap="3" count="21"/>
+        <line num="23" type="stmt" count="21"/>
+        <line num="25" type="stmt" count="21"/>
+        <line num="26" type="stmt" count="12"/>
+        <line num="28" type="stmt" count="9"/>
+        <line num="32" type="method" name="createPaymentSession" visibility="public" complexity="2" crap="2.01" count="13"/>
+        <line num="34" type="stmt" count="13"/>
+        <line num="35" type="stmt" count="13"/>
+        <line num="36" type="stmt" count="13"/>
+        <line num="37" type="stmt" count="13"/>
+        <line num="38" type="stmt" count="13"/>
+        <line num="39" type="stmt" count="13"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="13"/>
+        <line num="47" type="method" name="deletePaymentSession" visibility="public" complexity="1" crap="1" count="8"/>
+        <line num="49" type="stmt" count="8"/>
+        <metrics loc="50" ncloc="47" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="14" elements="19" coveredelements="17"/>
+      </file>
+    </package>
+    <file name="/var/www/symfony/src/Service/PaymentSessionServiceInterface.php">
+      <metrics loc="16" ncloc="16" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <metrics files="15" loc="1125" ncloc="981" classes="12" methods="50" coveredmethods="44" conditionals="0" coveredconditionals="0" statements="310" coveredstatements="297" elements="360" coveredelements="341"/>
+  </project>
+</coverage>
