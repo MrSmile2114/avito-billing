@@ -3,7 +3,7 @@
 информацию о платежах.
 
 [![Build Status](https://travis-ci.org/MrSmile2114/avito-billing.svg?branch=master)](https://travis-ci.org/MrSmile2114/avito-billing)
-
+[![codecov](https://codecov.io/gh/MrSmile2114/avito-billing/branch/master/graph/badge.svg)](https://codecov.io/gh/MrSmile2114/avito-billing)
 
 #### Основной функционал
 Продавец, с помощью POST метода `/api/payment/register`, получает URL страницы для оплаты с 
