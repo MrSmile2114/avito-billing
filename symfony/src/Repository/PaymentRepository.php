@@ -42,7 +42,7 @@ final class PaymentRepository extends ServiceEntityRepository implements Payment
 
         if (!is_null($orderBy)) {
             foreach ($orderBy as $field => $order) {
-                $qb->addOrderBy($field, $order);
+                $qb->addOrderBy('p.'.$field, $order);
             }
         }
 
