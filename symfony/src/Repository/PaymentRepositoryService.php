@@ -17,19 +17,21 @@ use Doctrine\Common\Persistence\ObjectRepository;
 interface PaymentRepositoryService extends ObjectRepository
 {
     /**
-     * @param \DateTimeInterface $startsOn
-     * @param \DateTimeInterface $endsOn
+     * Finds Payments for a given period
+     *
+     * @param \DateTimeInterface $startsOn  Beginning of period
+     * @param \DateTimeInterface $endsOn    End of period
      * @param array|null $orderBy
-     * @param null $limit
-     * @param null $offset
-     * @return Payment[] Returns an array of Payment objects
+     * @param int|null $limit
+     * @param int|null $offset
+     * @return Payment[]                    Returns an array of {@link Payment} objects
      */
     public function findByPeriod(
         \DateTimeInterface $startsOn,
         \DateTimeInterface $endsOn,
         array $orderBy = null,
-        $limit = null,
-        $offset = null
+        int $limit = null,
+        int $offset = null
     );
 
 }

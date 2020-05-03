@@ -13,6 +13,10 @@ use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
+/**
+ * Class PaymentEntityService
+ * @package App\Service\EntityServices
+ */
 final class PaymentEntityService extends AbstractEntityService implements PaymentServiceInterface
 {
     /**
@@ -42,6 +46,9 @@ final class PaymentEntityService extends AbstractEntityService implements Paymen
         parent::__construct($entityManager, $repositoryService, $serializer);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function getPaymentData(string $orderId, string $optionalFields): ?array
     {
         $payment = $this->objectRepository->findOneBy(['orderId' => $orderId]);
@@ -56,6 +63,9 @@ final class PaymentEntityService extends AbstractEntityService implements Paymen
             );
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function getPaymentsPageData(
         int $page,
         int $resOnPage = null,
@@ -73,6 +83,9 @@ final class PaymentEntityService extends AbstractEntityService implements Paymen
         );
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function getPaymentsDataFromDatetime(
         \DateTimeInterface $startsOn,
         \DateTimeInterface $endsOn,
@@ -93,16 +106,25 @@ final class PaymentEntityService extends AbstractEntityService implements Paymen
         return $itemsData;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function getPaymentsCount(array $criteria = null): int
     {
         return $this->count($criteria);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function getPaymentByOrderId(string $orderId): ?Payment
     {
         return $this->objectRepository->findOneBy(['orderId' => $orderId]);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function sendNotification(Payment $payment, string $fields = null)
     {
         $fields = $fields ?? '';
@@ -124,11 +146,17 @@ final class PaymentEntityService extends AbstractEntityService implements Paymen
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function createPaymentSession(Payment $payment): ?string
     {
         return $this->paymentSessionService->createPaymentSession($payment->getId());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function getPaymentBySessionId(string $sessionId): ?Payment
     {
         $paymentId = $this->paymentSessionService->getPaymentId($sessionId);

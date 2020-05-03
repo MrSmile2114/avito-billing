@@ -20,19 +20,14 @@ final class PaymentRepository extends ServiceEntityRepository implements Payment
     }
 
     /**
-     * @param \DateTimeInterface $startsOn
-     * @param \DateTimeInterface $endsOn
-     * @param array|null $orderBy
-     * @param null $limit
-     * @param null $offset
-     * @return Payment[] Returns an array of Payment objects
+     * {@inheritDoc}
      */
     public function findByPeriod(
         \DateTimeInterface $startsOn,
         \DateTimeInterface $endsOn,
         array $orderBy = null,
-        $limit = null,
-        $offset = null
+        int $limit = null,
+        int $offset = null
     ) {
         $qb = $this->createQueryBuilder('p')
             ->andWhere('p.createdAt > :start')
@@ -53,16 +48,4 @@ final class PaymentRepository extends ServiceEntityRepository implements Payment
             ->getResult();
     }
 
-
-    /*
-    public function findOneBySomeField($value): ?Payment
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

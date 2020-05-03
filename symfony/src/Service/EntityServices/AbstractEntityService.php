@@ -41,7 +41,7 @@ abstract class AbstractEntityService
     /**
      * Getting data from an entity by its id
      *
-     * @param int $id Entity ID
+     * @param int $id                   Entity ID
      * @param string $optionalFields    String containing the names of the properties to be added to the return
      * @param array $allowedOptFields   Array of names of allowed additional properties for return
      * @param array $defaultFields      An array of properties names added to the return always
@@ -72,12 +72,12 @@ abstract class AbstractEntityService
      * @param string $optionalFields    String containing the names of the properties to be added to the return
      * @param array $allowedOptFields   Array of names of allowed additional properties for return
      * @param array $defaultFields      An array of properties names added to the return always
-     * @param string $orderBy           A string containing properties names with their sorting methods Ex: asc_id
+     * @param string $orderBy           String containing properties names with their sorting methods Ex: asc_id
      * @param array $orderlyFields      Array with names of allowed properties for sorting
      * @param array $defaultOrderCriteria
      * @param array|null $criteria
      *
-     * @return array                    Array with normalized entities
+     * @return array                    Array of normalized entities
      */
     public function getEntitiesPageData(
         int $page = null,
@@ -111,6 +111,16 @@ abstract class AbstractEntityService
         return $itemsData;
     }
 
+    /**
+     * Gets an array of criteria suitable for use in the repository
+     *
+     * @param string $orderBy               String containing properties names with their sorting methods Ex: asc_id
+     *                                      Examples of possible values: asc(id), DESC(id), ASC_id, desc_id, etc.
+     * @param array $orderlyFields          array with the names of the properties by which sorting is available
+     * @param array $defaultOrderCriteria   default sort
+     *
+     * @return array                        Returns the criteria, keys - property names, values - asc or desc
+     */
     public function getOrderCriteria(
         string $orderBy = '',
         array $orderlyFields = [],
@@ -137,6 +147,16 @@ abstract class AbstractEntityService
         return ((empty($orderCriteria)) ? $defaultOrderCriteria : $orderCriteria);
     }
 
+    /**
+     * Normalizes the entity according to the parameters
+     *
+     * @param $entity
+     * @param string $optionalFields    String containing the names of the properties to be added to the return
+     * @param array $allowedOptFields   Array of names of allowed additional properties for return
+     * @param array $defaultFields      An array of properties names added to the return always
+     *
+     * @return array                    Returns array of entity properties
+     */
     protected function normalizeEntity(
         $entity,
         string $optionalFields = '',
