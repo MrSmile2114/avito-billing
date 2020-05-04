@@ -45,8 +45,11 @@ class PaymentRepositoryTest extends KernelTestCase
         $fixture = new PaymentFixtures();
         $fixture->load($this->entityManager);
 
-        $paymentsFromRep = $this->entityManager->getRepository(Payment::class)->findByPeriod($startsOn, $endsOn);
+        $repository = $this->entityManager->getRepository(Payment::class);
+
+        $paymentsFromRep = $repository->findByPeriod($startsOn, $endsOn);
         $this->assertCount($count, $paymentsFromRep);
+        $this->assertEquals($count, $repository->countByPeriod($startsOn, $endsOn));
 
         foreach ($paymentsFromRep as $payment) {
             $this->assertTrue(($payment->getCreatedAt() > $startsOn) and ($payment->getCreatedAt() < $endsOn));

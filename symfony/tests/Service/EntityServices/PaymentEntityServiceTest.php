@@ -36,7 +36,7 @@ class PaymentEntityServiceTest extends WebTestCase
      * @param string $endsOn
      * @param int $count
      */
-    public function testGetPaymentsDataFromDatetime(string $startsOn, string $endsOn, int $count)
+    public function testGetPaymentsDataFromPeriod(string $startsOn, string $endsOn, int $count)
     {
         $startsOn = new \DateTime($startsOn);
         $endsOn = new \DateTime($endsOn);
@@ -45,10 +45,11 @@ class PaymentEntityServiceTest extends WebTestCase
         $payments = $fixture->load($this->entityManager);
 
 
-        $paymentsData = $container->getPaymentsDataFromDatetime($startsOn, $endsOn, 'createdAt');
+        $paymentsData = $container->getPaymentsDataFromPeriod($startsOn, $endsOn, 'createdAt');
+        $paymentsCount = $container->getPaymentsCountFromPeriod($startsOn, $endsOn);
         $this->assertCount($count, $paymentsData);
+        $this->assertEquals($count, $paymentsCount);
 
-        $i = 0;
         foreach ($paymentsData as $paymentData) {
             $realPayment = $payments[$paymentData['orderId']];
             $this->assertEquals($realPayment->getCreatedAt(), new \DateTime($paymentData['createdAt']));
@@ -56,7 +57,37 @@ class PaymentEntityServiceTest extends WebTestCase
             $this->assertEquals($realPayment->getPurpose(), $paymentData['purpose']);
             $this->assertTrue(($realPayment->getCreatedAt() > $startsOn) and ($realPayment->getCreatedAt() < $endsOn));
         }
+    }
 
+    /**
+     * @dataProvider getPeriodDataPage
+     * @param string $startsOn
+     * @param string $endsOn
+     * @param int $page
+     * @param int $resOnPage
+     */
+    public function testGetPaymentsDataFromPeriodPagination(string $startsOn, string $endsOn, int $page, int $resOnPage)
+    {
+        $startsOn = new \DateTime($startsOn);
+        $endsOn = new \DateTime($endsOn);
+        $container = self::$container->get(PaymentEntityService::class);
+        $fixture = new PaymentFixtures();
+        $payments = $fixture->load($this->entityManager);
+
+        $paymentsPage = $container->getPaymentsDataFromPeriod($startsOn, $endsOn, 'createdAt', $page, $resOnPage);
+        $paymentsAll = $container->getPaymentsDataFromPeriod($startsOn, $endsOn);
+
+        $offset = (($page - 1) * $resOnPage);
+        $end = min(count($paymentsAll) - 1, $offset + $resOnPage - 1);
+
+        $j = 0;
+        for ($i = $offset; $i <= $end; $i++) {
+            $paymentExpected = $paymentsAll[$i];
+            $paymentActual = $paymentsPage[$j];
+            $this->assertEquals($paymentExpected['amount'], $paymentActual['amount']);
+            $this->assertEquals($paymentExpected['orderId'], $paymentActual['orderId']);
+            $j++;
+        }
     }
 
     public function testGetPaymentsPageData()
@@ -198,7 +229,7 @@ class PaymentEntityServiceTest extends WebTestCase
         $this->entityManager->flush();
         $id = $payment->getId();
         $container = self::$container->get(PaymentEntityService::class);
-        $data = $container->getEntityData($payment->getId(), 'notification',[],['amount','orderId']);
+        $data = $container->getEntityData($payment->getId(), 'notification', [], ['amount', 'orderId']);
 
         $this->assertCount(2, $data);
         $this->assertEquals($payment->getAmount(), $data['amount']);
@@ -226,6 +257,18 @@ class PaymentEntityServiceTest extends WebTestCase
             ['2020-04-28 12:00:00', '2020-04-29 12:00:00', 1],
             ['2020-04-20 12:00:00', '2020-04-29 12:00:00', 9],
             ['2020-04-22 12:00:00', '2020-04-23 12:00:00', 1],
+            ['2020-04-25 12:00:00', '2020-04-29 12:00:00', 4],
+        ];
+    }
+
+    public function getPeriodDataPage()
+    {
+        return [
+            ['2020-04-20 12:00:00', '2020-04-29 15:00:00', 2, 5],
+            ['2020-04-22 12:00:00', '2020-04-29 15:00:00', 1, 5],
+            ['2020-04-20 12:00:00', '2020-04-29 15:00:00', 3, 4],
+            ['2020-04-25 12:00:00', '2020-04-29 12:00:00', 2, 3],
+            ['2020-04-20 12:00:00', '2020-04-29 12:00:00', 4, 2],
         ];
     }
 

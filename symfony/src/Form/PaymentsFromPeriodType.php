@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -36,6 +37,18 @@ final class PaymentsFromPeriodType extends AbstractType
                         new NotBlank(),
                     ],
                 ]
+            )
+            ->add('page', IntegerType::class, ['required' => false, 'empty_data' => '1'])
+            ->add(
+                'resOnPage',
+                IntegerType::class,
+                [
+                    'required' => false,
+                    'empty_data' => strval($options['defaultResOnPage']),
+                    'constraints' => [
+                        new Length(['min' => 1, 'max' => 4]),
+                    ],
+                ]
             );
     }
 
@@ -44,7 +57,9 @@ final class PaymentsFromPeriodType extends AbstractType
         $resolver->setDefaults(
             [
                 'csrf_protection' => false,
+                'defaultResOnPage' => '100',
             ]
         );
+        $resolver->setAllowedTypes('defaultResOnPage', 'int');
     }
 }

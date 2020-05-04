@@ -89,6 +89,38 @@ class ApiControllerTest extends WebTestCase
         $this->assertEquals($payments['testOrderId'.$id]->getAmount(), $jsonData['payments'][0]['amount']);
     }
 
+    public function testGetPaymentsFromPeriodNotFound()
+    {
+        $id = 22;
+        $fixture = new PaymentFixtures();
+        $payments = $fixture->load($this->entityManager);
+
+        $this->client->request(
+            'GET',
+            '/api/payments/period?startsOn=2020-04-'.$id.' 12:43:12&endsOn=2020-04-'.$id.'T15:43:12&page=10'
+        );
+        $resp = $this->client->getResponse();
+        $this->assertEquals(200, $resp->getStatusCode());
+
+        $jsonData = json_decode($resp->getContent(), true);
+        $this->assertEquals($payments['testOrderId'.$id]->getAmount(), $jsonData['payments'][0]['amount']);
+        $this->assertEquals(1, $jsonData['page']);
+    }
+
+    public function testGetPaymentsFromPeriodInvPage()
+    {
+        $id = 22;
+        $fixture = new PaymentFixtures();
+        $payments = $fixture->load($this->entityManager);
+
+        $this->client->request(
+            'GET',
+            '/api/payments/period?startsOn=2020-04-30 12:43:12&endsOn=2020-04-29T15:43:12'
+        );
+        $resp = $this->client->getResponse();
+        $this->assertEquals(404, $resp->getStatusCode());
+    }
+
     /**
      * @dataProvider getInvalidPeriod
      * @param $startsOn

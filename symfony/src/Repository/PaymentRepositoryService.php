@@ -34,4 +34,14 @@ interface PaymentRepositoryService extends ObjectRepository
         int $offset = null
     );
 
+    /**
+     * Getting the count of payments for a given period
+     *
+     * @param \DateTimeInterface $startsOn  Beginning of period
+     * @param \DateTimeInterface $endsOn    End of period
+     *
+     * @return int                          Count of payments
+     */
+    public function countByPeriod(\DateTimeInterface $startsOn, \DateTimeInterface $endsOn): int;
+
 }

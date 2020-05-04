@@ -17,6 +17,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class ApiController extends AbstractController
 {
+    const DEFAULT_RES_ON_PAGE = 100;
 
     /**
      * @Route("/api/payment/{orderId}", name="payment_get", methods={"GET"})
@@ -94,18 +95,42 @@ final class ApiController extends AbstractController
         Request $request,
         PaymentServiceInterface $paymentService
     ): JsonResponse {
-        $form = $this->createForm(PaymentsFromPeriodType::class);
+        $form = $this->createForm(
+            PaymentsFromPeriodType::class,
+            null,
+            ['defaultResOnPage' => self::DEFAULT_RES_ON_PAGE]
+        );
         $form->submit($request->query->all());
 
         if ($form->isSubmitted() and $form->isValid()) {
             $formData = $form->getData();
-            $paymentsData = $paymentService->getPaymentsDataFromDatetime(
-                $formData['startsOn'],
-                $formData['endsOn'],
-                $formData['fields']
-            );
 
-            return $this->json(['status' => 'Success', 'payments' => $paymentsData]);
+            $paymentsCount = $paymentService->getPaymentsCountFromPeriod($formData['startsOn'], $formData['endsOn']);
+
+            if ($paymentsCount > 0) {
+                if (($formData['page'] - 1) * $formData['resOnPage'] >= $paymentsCount) {
+                    $formData['page'] = 1;
+                }
+
+                $paymentsData = $paymentService->getPaymentsDataFromPeriod(
+                    $formData['startsOn'],
+                    $formData['endsOn'],
+                    $formData['fields'],
+                    $formData['page'],
+                    $formData['resOnPage']
+                );
+
+                return $this->json(
+                    [
+                        'status' => 'Success',
+                        'page' => $formData['page'],
+                        'nextPageExists' => ($formData['page'] * $formData['resOnPage'] < $paymentsCount),
+                        'payments' => $paymentsData,
+                    ]
+                );
+            } else {
+                return $this->json(['status' => 'No payments found for this period.'], 404);
+            }
         } else {
             return $this->getValidationErrorResp($form);
         }

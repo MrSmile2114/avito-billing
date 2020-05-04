@@ -48,4 +48,15 @@ final class PaymentRepository extends ServiceEntityRepository implements Payment
             ->getResult();
     }
 
+    public function countByPeriod(\DateTimeInterface $startsOn, \DateTimeInterface $endsOn): int
+    {
+        return $this->createQueryBuilder('p')
+            ->select('count(p.id)')
+            ->andWhere('p.createdAt > :start')
+            ->andWhere('p.createdAt < :end')
+            ->setParameter('start', $startsOn)
+            ->setParameter('end', $endsOn)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }

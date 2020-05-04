@@ -86,13 +86,17 @@ final class PaymentEntityService extends AbstractEntityService implements Paymen
     /**
      * {@inheritDoc}
      */
-    public function getPaymentsDataFromDatetime(
+    public function getPaymentsDataFromPeriod(
         \DateTimeInterface $startsOn,
         \DateTimeInterface $endsOn,
-        string $optFields = ''
+        string $optFields = '',
+        int $page = null,
+        int $resOnPage = null
     ): array {
         $itemsData = [];
-        $payments = $this->objectRepository->findByPeriod($startsOn, $endsOn);
+        $offset = (is_null($page) or is_null($resOnPage)) ? null : (($page - 1) * $resOnPage);
+
+        $payments = $this->objectRepository->findByPeriod($startsOn, $endsOn, ['createdAt' => 'desc'], $resOnPage, $offset);
 
         foreach ($payments as $payment) {
             $itemsData[] = $this->normalizeEntity(
@@ -104,6 +108,14 @@ final class PaymentEntityService extends AbstractEntityService implements Paymen
         }
 
         return $itemsData;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPaymentsCountFromPeriod(\DateTimeInterface $startsOn, \DateTimeInterface $endsOn): int
+    {
+        return $this->objectRepository->countByPeriod($startsOn, $endsOn);
     }
 
     /**

@@ -84,15 +84,30 @@ interface PaymentServiceInterface
      *
      * @param \DateTimeInterface $startsOn  Beginning of period
      * @param \DateTimeInterface $endsOn    End of period
-     * @param string $optFields             String containing additional properties that should be included in return
-     *
+     * @param string $optFields             String containing the names of the properties to be added to the return
+     * @param int|null $page                Results page number.
+     *                                      Parameter will have an effect only when used with not null $resOnPage
+     * @param int|null $resOnPage           Number of Payments on return.
+     *                                      Parameter will have an effect only when used with not null $page
      * @return array                        Array of normalized {@link Payment}s
      */
-    public function getPaymentsDataFromDatetime(
+    public function getPaymentsDataFromPeriod(
         \DateTimeInterface $startsOn,
         \DateTimeInterface $endsOn,
-        string $optFields = ''
+        string $optFields = '',
+        int $page = null,
+        int $resOnPage = null
     ): array;
+
+    /**
+     *  Getting the count of payments for a given period
+     *
+     * @param \DateTimeInterface $startsOn  Beginning of period
+     * @param \DateTimeInterface $endsOn    End of period
+     *
+     * @return int                          Count of payments
+     */
+    public function getPaymentsCountFromPeriod(\DateTimeInterface $startsOn, \DateTimeInterface $endsOn): int;
 
     /**
      * Creates a payment session
