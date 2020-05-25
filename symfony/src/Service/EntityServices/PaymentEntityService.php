@@ -149,7 +149,6 @@ final class PaymentEntityService extends AbstractEntityService implements Paymen
     {
         $fields = $fields ?? '';
         if (!is_null($payment->getNotification())) {
-            $client = HttpClient::create();
             $data = $this->normalizeEntity(
                 $payment,
                 $fields,
