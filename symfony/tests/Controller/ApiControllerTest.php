@@ -181,6 +181,36 @@ class ApiControllerTest extends WebTestCase
         $this->entityManager->flush();
     }
 
+    public function testRegisterSuccessJSON()
+    {
+        $data = [
+            'purpose' => 'TEST TEST',
+            'amount' => 1500.76,
+            'notification' => 'http://example',
+            'orderId' => 'testId912123',
+        ];
+        $this->client->request(
+            'POST',
+            '/api/payment/register',
+            [],
+            [],
+            ['CONTENT_TYPE' => 'application/json'],
+            json_encode($data)
+        );
+        $resp = $this->client->getResponse();
+        $this->assertEquals(200, $resp->getStatusCode());
+        $jsonData = json_decode($resp->getContent(), true);
+        $container = self::$container->get(PaymentEntityService::class);
+
+        $sessionIdPayment = $container->getPaymentBySessionId($jsonData['sessionId']);
+        $paymentOrderId = $container->getPaymentByOrderId('testId912123');
+
+        $this->assertSame($sessionIdPayment, $paymentOrderId);
+
+        $this->entityManager->remove($paymentOrderId);
+        $this->entityManager->flush();
+    }
+
     public function testRegisterNotUnique()
     {
         $data = [

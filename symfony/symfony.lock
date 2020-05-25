@@ -162,6 +162,9 @@
             "config/packages/snc_redis.yaml"
         ]
     },
+    "symfony-bundles/json-request-bundle": {
+        "version": "v3.0.0"
+    },
     "symfony/asset": {
         "version": "v5.0.7"
     },
