@@ -30,9 +30,13 @@ RUN apk add --update --no-cache \
     php7-xdebug \
     php7-zip \
     php7-xmlwriter \
+    php7-pecl-redis\
     make \
     curl
 
+##supervisor
+#RUN apk add --update supervisor && rm  -rf /tmp/* /var/cache/apk/*
+#
 RUN echo "$(curl -sS https://composer.github.io/installer.sig) -" > composer-setup.php.sig \
         && curl -sS https://getcomposer.org/installer | tee composer-setup.php | sha384sum -c composer-setup.php.sig \
         && php composer-setup.php && rm composer-setup.php* \
@@ -46,6 +50,9 @@ COPY xdebug.ini  /etc/php7/conf.d/
 COPY symfony.pool.conf /etc/php7/php-fpm.d/
 
 CMD ["php-fpm7", "-F"]
+
+#COPY supervisord.conf /etc/
+#CMD ["supervisord", "-c", "/etc/supervisord.conf"]
 
 WORKDIR /var/www/symfony
 EXPOSE 9001

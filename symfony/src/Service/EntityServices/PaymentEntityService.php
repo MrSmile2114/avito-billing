@@ -5,13 +5,14 @@ namespace App\Service\EntityServices;
 
 
 use App\Entity\Payment;
+use App\Message\SendNotificationMessage;
 use App\Repository\PaymentRepositoryService;
 use App\Service\PaymentSessionServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
 /**
  * Class PaymentEntityService
@@ -34,15 +35,22 @@ final class PaymentEntityService extends AbstractEntityService implements Paymen
      */
     protected $objectRepository;
 
+    /**
+     * @var MessageBusInterface
+     */
+    private $messageInterface;
+
     public function __construct(
         EntityManagerInterface $entityManager,
         SerializerInterface $serializer,
         LoggerInterface $logger,
         PaymentRepositoryService $repositoryService,
-        PaymentSessionServiceInterface $paymentSessionService
+        PaymentSessionServiceInterface $paymentSessionService,
+        MessageBusInterface $messageInterface
     ) {
         $this->paymentSessionService = $paymentSessionService;
         $this->logger = $logger;
+        $this->messageInterface = $messageInterface;
         parent::__construct($entityManager, $repositoryService, $serializer);
     }
 
@@ -148,13 +156,7 @@ final class PaymentEntityService extends AbstractEntityService implements Paymen
                 self::ALLOWED_OPTIONAL_RESP_FIELDS,
                 self::DEFAULT_RESP_FIELDS
             );
-            try {
-                //Responses are always asynchronous, so that the call to the method returns immediately
-                // instead of waiting to receive the response
-                $client->request('GET', $payment->getNotification(), ['query' => $data]);
-            } catch (TransportExceptionInterface $e) {
-                $this->logger->warning('Error sending notification: '.$e->getMessage());
-            }
+            $this->messageInterface->dispatch(new SendNotificationMessage($payment->getNotification(), $data));
         }
     }
 
