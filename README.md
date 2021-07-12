@@ -2,8 +2,8 @@
 Простая платежная система c JSON API, которая умеет отображать форму оплаты банковской картой и сохраняет 
 информацию о платежах.
 
-[![Build Status](https://travis-ci.org/MrSmile2114/avito-billing.svg?branch=master)](https://travis-ci.org/MrSmile2114/avito-billing)
-[![codecov](https://codecov.io/gh/MrSmile2114/avito-billing/branch/master/graph/badge.svg)](https://codecov.io/gh/MrSmile2114/avito-billing)
+[![Build Status](https://travis-ci.com/s-shiryaev/avito-billing.svg?branch=master)](https://travis-ci.com/s-shiryaev/avito-billing)
+[![codecov](https://codecov.io/gh/s-shiryaev/avito-billing/branch/master/graph/badge.svg)](https://codecov.io/gh/s-shiryaev/avito-billing)
 
 #### Основной функционал
 Продавец, с помощью POST метода `/api/payment/register`, получает URL страницы для оплаты с 
